@@ -26,7 +26,7 @@ int main()
 
 	InitWindow(MAZE_WIDTH, MAZE_HEIGHT, "Maze generation");
 	
-	SetTargetFPS(10);
+	SetTargetFPS(5000);
 
 	// ! INIT MAZE
 	// ? INIT WIDTH AND HEIGHT OF THE MAZE 
@@ -76,14 +76,17 @@ int main()
 			{
 				m1.current = stackPop(st);
 			}
+			else
+			{
+				// exit(0);
+				SetTargetFPS(60);
+				showMaze(m1);
+			}
 		}
 		stucked = 0;
 
-		// printf("STACK TOP %ld\n",st->top );
-		// printf("Xp : %ld | Yp : %ld \n", m1.current->pos.x, m1.current->pos.y);
-
 		// DRAW
-		showMaze(m1);
+		// showMaze(m1);
 
 		EndDrawing(); // ! END DRAWING
 	}
