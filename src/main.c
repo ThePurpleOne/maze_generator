@@ -62,24 +62,25 @@ int main()
 
 		// UPDATE
 		pNextCell = getNeighbor(&m1, &stucked);
-		stackPush(st, m1.current);
+		if(!stucked)
+		{
+			pNextCell->visited = true;
+			stackPush(st, m1.current);
+			removeWallsBetweenCells(m1.current, pNextCell);
+			m1.current = pNextCell;
 
-		removeWallsBetweenCells(m1.current, pNextCell);
-		m1.current = pNextCell;
-		m1.current->visited = true;
-
-		if(stucked)
+		}
+		else
 		{
 			if(!stackIsEmpty(st))
 			{
-				m1.current = stackPop(st);
 				m1.current = stackPop(st);
 			}
 		}
 		stucked = 0;
 
-		printf("STACK TOP %ld\n",st->top );
-		printf("Xp : %ld | Yp : %ld \n", m1.current->pos.x, m1.current->pos.y);
+		// printf("STACK TOP %ld\n",st->top );
+		// printf("Xp : %ld | Yp : %ld \n", m1.current->pos.x, m1.current->pos.y);
 
 		// DRAW
 		showMaze(m1);
