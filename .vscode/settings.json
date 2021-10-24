@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "global.h": "c",
+        "maze.h": "c"
+    }
+}
