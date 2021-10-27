@@ -12,12 +12,10 @@
 #include <stdlib.h>
 #include <time.h>
 
-
 #include "raylib.h"
 #include "raymath.h"
 #include "../include/maze.h"
 #include "../include/jstack.h"
-
 
 int main()
 {
@@ -26,13 +24,12 @@ int main()
 
 	InitWindow(MAZE_WIDTH, MAZE_HEIGHT, "Maze generation");
 	
-	SetTargetFPS(5000);
+	SetTargetFPS(60);
 
 	// ! INIT MAZE
-	// ? INIT WIDTH AND HEIGHT OF THE MAZE 
 	Maze m1 = {.w=MAZE_WIDTH / CELL_SIZE, .h=MAZE_HEIGHT / CELL_SIZE};
 	
-	// ? INIT CELLS IN MAZE
+	// ? INIT CELLS IN MAZE WITH ALL WALLS 
 	for (uint64_t x = 0; x < m1.w; x++)
 	{
 		for (uint64_t y = 0; y < m1.h; y++)
@@ -68,7 +65,6 @@ int main()
 			stackPush(st, m1.current);
 			removeWallsBetweenCells(m1.current, pNextCell);
 			m1.current = pNextCell;
-
 		}
 		else
 		{
@@ -78,16 +74,13 @@ int main()
 			}
 			else
 			{
-				// exit(0);
-				SetTargetFPS(60);
-				showMaze(m1);
+				// MAZE FINISHED
 			}
 		}
 		stucked = 0;
 
 		// DRAW
-		// showMaze(m1);
-
+		showMaze(m1);
 		EndDrawing(); // ! END DRAWING
 	}
 

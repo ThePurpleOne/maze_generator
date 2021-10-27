@@ -18,7 +18,7 @@
 
 
 // DEFINES
-#define CELL_SIZE 5
+#define CELL_SIZE 50
 #define MAZE_WIDTH 1000
 #define MAZE_HEIGHT 1000
 

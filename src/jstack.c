@@ -9,7 +9,6 @@
 #include "../include/jstack.h"
 #include "../include/maze.h"
 
-
 Jstack * createStack(uint64_t max)
 {
 	// idk 
