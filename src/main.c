@@ -51,6 +51,7 @@ int main()
 	Jstack * st = createStack(MAZE_WIDTH / CELL_SIZE * MAZE_HEIGHT / CELL_SIZE);
 	bool stucked = 0;
 
+	
 	while (!WindowShouldClose())
 	{
 		BeginDrawing(); // ! DRAWING
